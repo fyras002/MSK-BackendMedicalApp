@@ -1,7 +1,7 @@
 using MedicalAppBackend.Data;
 using Microsoft.EntityFrameworkCore;
 
-using MedicalAppBackend.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

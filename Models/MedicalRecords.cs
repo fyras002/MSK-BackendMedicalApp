@@ -7,6 +7,7 @@ namespace MedicalAppBackend.Models
         public int IdMedicalRecord { get; set; }
 
         public int? IdPatient { get; set; }
+        public Patients? Patient { get; set; }
 
         public string? BloodDraw { get; set; }
         public string? Height { get; set; }

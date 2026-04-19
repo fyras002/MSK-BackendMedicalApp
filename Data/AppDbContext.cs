@@ -67,7 +67,26 @@ namespace MedicalAppBackend.Data
             modelBuilder.Entity<ChatMessages>()
                 .HasKey(cm => cm.IdChatMessage);
 
-            
+        
+            //hedhi pour ignorer les nulls
+            modelBuilder.Entity<Patients>()
+                .Navigation(p => p.MedicalRecord)
+                .AutoInclude(false);
+
+            modelBuilder.Entity<Patients>()
+                .Navigation(p => p.Appointments)
+                .AutoInclude(false);
+
+            modelBuilder.Entity<Patients>()
+                .Navigation(p => p.Consultations)
+                .AutoInclude(false);
+            //les relations bin les tables 
+            modelBuilder.Entity<MedicalRecords>()
+                .HasOne(m => m.Patient)
+                .WithOne(p => p.MedicalRecord)
+                .HasForeignKey<MedicalRecords>(m => m.IdPatient)
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

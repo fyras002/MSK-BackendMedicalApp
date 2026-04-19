@@ -4,6 +4,7 @@ using MedicalAppBackend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalAppBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260419020537_FixMedicalRecordRelationship")]
+    partial class FixMedicalRecordRelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -660,8 +663,7 @@ namespace MedicalAppBackend.Migrations
                 {
                     b.HasOne("MedicalAppBackend.Models.Patients", "Patient")
                         .WithOne("MedicalRecord")
-                        .HasForeignKey("MedicalAppBackend.Models.MedicalRecords", "IdPatient")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("MedicalAppBackend.Models.MedicalRecords", "IdPatient");
 
                     b.Navigation("Patient");
                 });
