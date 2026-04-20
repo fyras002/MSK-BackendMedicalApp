@@ -1,4 +1,6 @@
 using MedicalAppBackend.Data;
+using MedicalAppBackend.Services;
+using MedicalAppBackend.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -10,6 +12,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddControllers();
 
+builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IDoctorService, DoctorService>();
 var app = builder.Build();
 
 app.UseHttpsRedirection();
