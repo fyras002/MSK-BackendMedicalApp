@@ -37,7 +37,7 @@ namespace MedicalAppBackend.Controllers
         {
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+            return Created($"/Users/{user.Id}", user);
         }
 
         [HttpDelete("{id}")]
