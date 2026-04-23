@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalAppBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260419022917_AddCascadeDelete")]
-    partial class AddCascadeDelete
+    [Migration("20260421224519_AddAppointmentRelationships2")]
+    partial class AddAppointmentRelationships2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,9 +36,6 @@ namespace MedicalAppBackend.Migrations
                     b.Property<DateTime?>("DateTimeAppointment")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DoctorId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("IdCompany")
                         .HasColumnType("int");
 
@@ -46,9 +43,6 @@ namespace MedicalAppBackend.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("IdPatient")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("InsuranceCompanyIdCompany")
                         .HasColumnType("int");
 
                     b.Property<bool?>("IsNewPatient")
@@ -59,9 +53,6 @@ namespace MedicalAppBackend.Migrations
 
                     b.Property<string>("PatientGender")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PatientIdPatient")
-                        .HasColumnType("int");
 
                     b.Property<string>("PatientName")
                         .HasColumnType("nvarchar(max)");
@@ -77,11 +68,11 @@ namespace MedicalAppBackend.Migrations
 
                     b.HasKey("IdAppointment");
 
-                    b.HasIndex("DoctorId");
+                    b.HasIndex("IdCompany");
 
-                    b.HasIndex("InsuranceCompanyIdCompany");
+                    b.HasIndex("IdDoctor");
 
-                    b.HasIndex("PatientIdPatient");
+                    b.HasIndex("IdPatient");
 
                     b.ToTable("Appointments");
                 });
@@ -432,9 +423,6 @@ namespace MedicalAppBackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("IdMedicalRecord")
-                        .HasColumnType("int");
-
                     b.Property<string>("Lastname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -445,7 +433,12 @@ namespace MedicalAppBackend.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("IdPatient");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Patients");
                 });
@@ -526,9 +519,8 @@ namespace MedicalAppBackend.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TitleName")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -579,7 +571,7 @@ namespace MedicalAppBackend.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RoleId")
+                    b.Property<int?>("Role")
                         .HasColumnType("int");
 
                     b.Property<string>("Username")
@@ -588,24 +580,22 @@ namespace MedicalAppBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
-
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("MedicalAppBackend.Models.Appointments", b =>
                 {
-                    b.HasOne("MedicalAppBackend.Models.Doctors", "Doctor")
-                        .WithMany("Appointments")
-                        .HasForeignKey("DoctorId");
-
                     b.HasOne("MedicalAppBackend.Models.InsuranceCompany", "InsuranceCompany")
                         .WithMany("Appointments")
-                        .HasForeignKey("InsuranceCompanyIdCompany");
+                        .HasForeignKey("IdCompany");
+
+                    b.HasOne("MedicalAppBackend.Models.Doctors", "Doctor")
+                        .WithMany("Appointments")
+                        .HasForeignKey("IdDoctor");
 
                     b.HasOne("MedicalAppBackend.Models.Patients", "Patient")
                         .WithMany("Appointments")
-                        .HasForeignKey("PatientIdPatient");
+                        .HasForeignKey("IdPatient");
 
                     b.Navigation("Doctor");
 
@@ -663,9 +653,19 @@ namespace MedicalAppBackend.Migrations
                 {
                     b.HasOne("MedicalAppBackend.Models.Patients", "Patient")
                         .WithOne("MedicalRecord")
-                        .HasForeignKey("MedicalAppBackend.Models.MedicalRecords", "IdPatient");
+                        .HasForeignKey("MedicalAppBackend.Models.MedicalRecords", "IdPatient")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("MedicalAppBackend.Models.Patients", b =>
+                {
+                    b.HasOne("MedicalAppBackend.Models.Users", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MedicalAppBackend.Models.Prescription", b =>
@@ -690,15 +690,6 @@ namespace MedicalAppBackend.Migrations
                     b.Navigation("Patient1");
 
                     b.Navigation("Patient2");
-                });
-
-            modelBuilder.Entity("MedicalAppBackend.Models.Users", b =>
-                {
-                    b.HasOne("MedicalAppBackend.Models.Roles", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleId");
-
-                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("MedicalAppBackend.Models.Doctors", b =>

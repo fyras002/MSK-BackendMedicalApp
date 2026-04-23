@@ -83,26 +83,6 @@ namespace MedicalAppBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MedicalRecords",
-                columns: table => new
-                {
-                    IdMedicalRecord = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdPatient = table.Column<int>(type: "int", nullable: true),
-                    BloodDraw = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Height = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Weight = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MedicalCheckup = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    HereditaryDiseases = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChronicDiseases = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MedicalRecords", x => x.IdMedicalRecord);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "MedicationLists",
                 columns: table => new
                 {
@@ -127,7 +107,7 @@ namespace MedicalAppBackend.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TitleName = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -150,58 +130,6 @@ namespace MedicalAppBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Documents",
-                columns: table => new
-                {
-                    IdDocument = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TitleDocument = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DescriptionDocument = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AttachmentDocument = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateDocument = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IdMedicalRecord = table.Column<int>(type: "int", nullable: true),
-                    MedicalRecordIdMedicalRecord = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Documents", x => x.IdDocument);
-                    table.ForeignKey(
-                        name: "FK_Documents_MedicalRecords_MedicalRecordIdMedicalRecord",
-                        column: x => x.MedicalRecordIdMedicalRecord,
-                        principalTable: "MedicalRecords",
-                        principalColumn: "IdMedicalRecord");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Patients",
-                columns: table => new
-                {
-                    IdPatient = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdMedicalRecord = table.Column<int>(type: "int", nullable: true),
-                    Firstname = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Lastname = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Birthdate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CIN = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Notebook = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CNSS = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Active = table.Column<bool>(type: "bit", nullable: true),
-                    MedicalRecordIdMedicalRecord = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Patients", x => x.IdPatient);
-                    table.ForeignKey(
-                        name: "FK_Patients_MedicalRecords_MedicalRecordIdMedicalRecord",
-                        column: x => x.MedicalRecordIdMedicalRecord,
-                        principalTable: "MedicalRecords",
-                        principalColumn: "IdMedicalRecord");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -213,66 +141,11 @@ namespace MedicalAppBackend.Migrations
                     Firstname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Lastname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Photo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RoleId = table.Column<int>(type: "int", nullable: true)
+                    Role = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Users_Roles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "Roles",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Prescriptions",
-                columns: table => new
-                {
-                    IdPerscription = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DocName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MedicationList = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IdDocument = table.Column<int>(type: "int", nullable: true),
-                    DocumentIdDocument = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Prescriptions", x => x.IdPerscription);
-                    table.ForeignKey(
-                        name: "FK_Prescriptions_Documents_DocumentIdDocument",
-                        column: x => x.DocumentIdDocument,
-                        principalTable: "Documents",
-                        principalColumn: "IdDocument");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Relationships",
-                columns: table => new
-                {
-                    IdRelationships = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdPatient1 = table.Column<int>(type: "int", nullable: true),
-                    Patient1IdPatient = table.Column<int>(type: "int", nullable: true),
-                    IdPatient2 = table.Column<int>(type: "int", nullable: true),
-                    Patient2IdPatient = table.Column<int>(type: "int", nullable: true),
-                    TitleRelationships = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NotesRelationships = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Relationships", x => x.IdRelationships);
-                    table.ForeignKey(
-                        name: "FK_Relationships_Patients_Patient1IdPatient",
-                        column: x => x.Patient1IdPatient,
-                        principalTable: "Patients",
-                        principalColumn: "IdPatient");
-                    table.ForeignKey(
-                        name: "FK_Relationships_Patients_Patient2IdPatient",
-                        column: x => x.Patient2IdPatient,
-                        principalTable: "Patients",
-                        principalColumn: "IdPatient");
                 });
 
             migrationBuilder.CreateTable(
@@ -298,6 +171,34 @@ namespace MedicalAppBackend.Migrations
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Doctors_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Patients",
+                columns: table => new
+                {
+                    IdPatient = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: true),
+                    Firstname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Lastname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Birthdate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CIN = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Notebook = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CNSS = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Active = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Patients", x => x.IdPatient);
+                    table.ForeignKey(
+                        name: "FK_Patients_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
@@ -345,6 +246,60 @@ namespace MedicalAppBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "MedicalRecords",
+                columns: table => new
+                {
+                    IdMedicalRecord = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdPatient = table.Column<int>(type: "int", nullable: true),
+                    BloodDraw = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Height = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Weight = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MedicalCheckup = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HereditaryDiseases = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ChronicDiseases = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MedicalRecords", x => x.IdMedicalRecord);
+                    table.ForeignKey(
+                        name: "FK_MedicalRecords_Patients_IdPatient",
+                        column: x => x.IdPatient,
+                        principalTable: "Patients",
+                        principalColumn: "IdPatient",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Relationships",
+                columns: table => new
+                {
+                    IdRelationships = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdPatient1 = table.Column<int>(type: "int", nullable: true),
+                    Patient1IdPatient = table.Column<int>(type: "int", nullable: true),
+                    IdPatient2 = table.Column<int>(type: "int", nullable: true),
+                    Patient2IdPatient = table.Column<int>(type: "int", nullable: true),
+                    TitleRelationships = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NotesRelationships = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Relationships", x => x.IdRelationships);
+                    table.ForeignKey(
+                        name: "FK_Relationships_Patients_Patient1IdPatient",
+                        column: x => x.Patient1IdPatient,
+                        principalTable: "Patients",
+                        principalColumn: "IdPatient");
+                    table.ForeignKey(
+                        name: "FK_Relationships_Patients_Patient2IdPatient",
+                        column: x => x.Patient2IdPatient,
+                        principalTable: "Patients",
+                        principalColumn: "IdPatient");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Consultations",
                 columns: table => new
                 {
@@ -380,6 +335,51 @@ namespace MedicalAppBackend.Migrations
                         column: x => x.PatientIdPatient,
                         principalTable: "Patients",
                         principalColumn: "IdPatient");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Documents",
+                columns: table => new
+                {
+                    IdDocument = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TitleDocument = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DescriptionDocument = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AttachmentDocument = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateDocument = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IdMedicalRecord = table.Column<int>(type: "int", nullable: true),
+                    MedicalRecordIdMedicalRecord = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Documents", x => x.IdDocument);
+                    table.ForeignKey(
+                        name: "FK_Documents_MedicalRecords_MedicalRecordIdMedicalRecord",
+                        column: x => x.MedicalRecordIdMedicalRecord,
+                        principalTable: "MedicalRecords",
+                        principalColumn: "IdMedicalRecord");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Prescriptions",
+                columns: table => new
+                {
+                    IdPerscription = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DocName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MedicationList = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IdDocument = table.Column<int>(type: "int", nullable: true),
+                    DocumentIdDocument = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Prescriptions", x => x.IdPerscription);
+                    table.ForeignKey(
+                        name: "FK_Prescriptions_Documents_DocumentIdDocument",
+                        column: x => x.DocumentIdDocument,
+                        principalTable: "Documents",
+                        principalColumn: "IdDocument");
                 });
 
             migrationBuilder.CreateIndex(
@@ -428,9 +428,16 @@ namespace MedicalAppBackend.Migrations
                 column: "MedicalRecordIdMedicalRecord");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Patients_MedicalRecordIdMedicalRecord",
+                name: "IX_MedicalRecords_IdPatient",
+                table: "MedicalRecords",
+                column: "IdPatient",
+                unique: true,
+                filter: "[IdPatient] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Patients_UserId",
                 table: "Patients",
-                column: "MedicalRecordIdMedicalRecord");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Prescriptions_DocumentIdDocument",
@@ -446,11 +453,6 @@ namespace MedicalAppBackend.Migrations
                 name: "IX_Relationships_Patient2IdPatient",
                 table: "Relationships",
                 column: "Patient2IdPatient");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_RoleId",
-                table: "Users",
-                column: "RoleId");
         }
 
         /// <inheritdoc />
@@ -481,6 +483,9 @@ namespace MedicalAppBackend.Migrations
                 name: "Relationships");
 
             migrationBuilder.DropTable(
+                name: "Roles");
+
+            migrationBuilder.DropTable(
                 name: "InsuranceCompanies");
 
             migrationBuilder.DropTable(
@@ -490,19 +495,16 @@ namespace MedicalAppBackend.Migrations
                 name: "Documents");
 
             migrationBuilder.DropTable(
-                name: "Patients");
-
-            migrationBuilder.DropTable(
                 name: "Specialities");
-
-            migrationBuilder.DropTable(
-                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "MedicalRecords");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Patients");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

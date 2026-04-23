@@ -1,6 +1,8 @@
 ﻿using MedicalAppBackend.Data;
 using MedicalAppBackend.Models;
 using Microsoft.AspNetCore.Mvc;
+using MedicalAppBackend.Services.Interfaces;
+using MedicalAppBackend.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace MedicalAppBackend.Controllers
@@ -9,35 +11,57 @@ namespace MedicalAppBackend.Controllers
     [Route("api/[controller]")]
     public class SpecialitiesController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly ISpecialityService _service;
 
-        public SpecialitiesController(AppDbContext context)
+        public SpecialitiesController(ISpecialityService service)
         {
-            _context = context;
+            _service = service;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllSpecialities()
         {
-            var specialities = await _context.Specialities.ToListAsync();
+            var specialities = await _service.GetAllSpecialitiesAsync();
             return Ok(specialities);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSpecialityById(int id)
         {
-            var speciality = await _context.Specialities.FindAsync(id);
+            var speciality = await _service.GetSpecialityByIdAsync(id);
             if (speciality == null)
-                return NotFound($"Speciality with id {id} not found");
+                return NotFound(new { message = $"Speciality with id {id} not found" });
             return Ok(speciality);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateSpeciality(Specialities speciality)
+        public async Task<IActionResult> CreateSpeciality(CreateSpecialityDto dto)
         {
-            await _context.Specialities.AddAsync(speciality);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetSpecialityById), new { id = speciality.Id }, speciality);
+            var created = await _service.CreateSpecialityAsync(dto);
+            return CreatedAtAction(nameof(GetSpecialityById), new { id = created.Id }, created);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateSpeciality(int id, UpdateSpecialityDto dto)
+        {
+            var updated = await _service.UpdateSpecialityAsync(id, dto);
+            if (!updated)
+                return NotFound(new { message = $"Speciality with id {id} not found" });
+            return Ok(new { message = $"Speciality {id} updated successfully" });
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteSpeciality(int id)
+        {
+            var deleted = await _service.DeleteSpecialityAsync(id);
+            if (!deleted)
+            {
+                var hasDoctors = await _service.HasDoctorsAsync(id);
+                if (hasDoctors)
+                    return BadRequest(new { message = $"Cannot delete speciality. It has doctors linked." });
+                return NotFound(new { message = $"Speciality with id {id} not found" });
+            }
+            return Ok(new { message = $"Speciality {id} deleted successfully" });
         }
     }
 }

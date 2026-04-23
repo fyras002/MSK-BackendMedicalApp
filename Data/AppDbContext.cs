@@ -1,7 +1,7 @@
 ﻿using MedicalAppBackend.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
-using MedicalAppBackend.Models;
+
 
 namespace MedicalAppBackend.Data
 {
@@ -81,11 +81,42 @@ namespace MedicalAppBackend.Data
                 .Navigation(p => p.Consultations)
                 .AutoInclude(false);
             //les relations bin les tables 
+
+            modelBuilder.Entity<Patients>()
+                .HasOne(p => p.User)
+                .WithMany()
+                .HasForeignKey(p => p.UserId);
+
             modelBuilder.Entity<MedicalRecords>()
                 .HasOne(m => m.Patient)
                 .WithOne(p => p.MedicalRecord)
                 .HasForeignKey<MedicalRecords>(m => m.IdPatient)
                 .OnDelete(DeleteBehavior.Cascade);
+            // Doctor -> User (One-to-One)
+            modelBuilder.Entity<Doctors>()
+                .HasOne(d => d.User)
+                .WithMany()
+                .HasForeignKey(d => d.UserId);
+            // Doctor -> Speciality (Many-to-One)
+            modelBuilder.Entity<Doctors>()
+                .HasOne(d => d.Speciality)
+                .WithMany(s => s.Doctors)
+                .HasForeignKey(d => d.SpecialityId);
+            // Appointment -> InsuranceCompany (Many-to-One)
+            modelBuilder.Entity<Appointments>()
+                .HasOne(a => a.InsuranceCompany)
+                .WithMany(i => i.Appointments)
+                .HasForeignKey(a => a.IdCompany);
+            // Appointment -> Patient
+            modelBuilder.Entity<Appointments>()
+                .HasOne(a => a.Patient)
+                .WithMany(p => p.Appointments)
+                .HasForeignKey(a => a.IdPatient);
+            // Appointment -> Doctor
+            modelBuilder.Entity<Appointments>()
+                .HasOne(a => a.Doctor)
+                .WithMany(d => d.Appointments)
+                .HasForeignKey(a => a.IdDoctor);
 
         }
     }

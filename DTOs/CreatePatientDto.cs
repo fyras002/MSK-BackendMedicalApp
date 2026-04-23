@@ -4,6 +4,8 @@ namespace MedicalAppBackend.DTOs
 {
     public class CreatePatientDto
     {
+        public int? UserId { get; set; }
+
         [Required]
         [MaxLength(100)]
         public string Firstname { get; set; } = string.Empty;

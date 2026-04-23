@@ -4,7 +4,8 @@ namespace MedicalAppBackend.DTOs
 {
     public class UpdatePatientDto
     {
-        
+        public int? UserId { get; set; }
+
         [MaxLength(100)]
         public string? Firstname { get; set; }
 

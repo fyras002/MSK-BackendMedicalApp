@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalAppBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260420001603_SimplifyUserModel")]
-    partial class SimplifyUserModel
+    [Migration("20260421212605_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -432,9 +432,6 @@ namespace MedicalAppBackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("IdMedicalRecord")
-                        .HasColumnType("int");
-
                     b.Property<string>("Lastname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -445,7 +442,12 @@ namespace MedicalAppBackend.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("IdPatient");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Patients");
                 });
@@ -526,9 +528,8 @@ namespace MedicalAppBackend.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TitleName")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -665,6 +666,15 @@ namespace MedicalAppBackend.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("MedicalAppBackend.Models.Patients", b =>
+                {
+                    b.HasOne("MedicalAppBackend.Models.Users", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MedicalAppBackend.Models.Prescription", b =>

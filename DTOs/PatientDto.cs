@@ -3,6 +3,8 @@
     public class PatientDto
     {
         public int IdPatient { get; set; }
+        public int? UserId { get; set; }
+        public string? Username { get; set; }
         public string Firstname { get; set; } = string.Empty;
         public string Lastname { get; set; } = string.Empty;
         public DateTime? Birthdate { get; set; }

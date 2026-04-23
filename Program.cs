@@ -14,6 +14,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<IDoctorService, DoctorService>();
+builder.Services.AddScoped<IInsuranceCompanyService, InsuranceCompanyService>();
+builder.Services.AddScoped<ISpecialityService, SpecialityService>();
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 var app = builder.Build();
 
 app.UseHttpsRedirection();
