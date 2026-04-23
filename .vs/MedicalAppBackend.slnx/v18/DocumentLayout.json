@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Controllers\\DocumentsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\DocumentsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\DocumentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\DocumentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\Interfaces\\IDocumentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Interfaces\\IDocumentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\DTOs\\DocumentDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DTOs\\DocumentDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Models\\Documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Data\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Controllers\\MedicalRecordsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\MedicalRecordsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\MedicalRecordService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -147,6 +167,84 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "DocumentsController.cs",
+              "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Controllers\\DocumentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DocumentsController.cs",
+              "ToolTip": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Controllers\\DocumentsController.cs",
+              "RelativeToolTip": "Controllers\\DocumentsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T03:50:15.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DocumentService.cs",
+              "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\DocumentService.cs",
+              "RelativeDocumentMoniker": "Services\\DocumentService.cs",
+              "ToolTip": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\DocumentService.cs",
+              "RelativeToolTip": "Services\\DocumentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T03:48:58.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IDocumentService.cs",
+              "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\Interfaces\\IDocumentService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IDocumentService.cs",
+              "ToolTip": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\Interfaces\\IDocumentService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IDocumentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T03:48:24.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DocumentDto.cs",
+              "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\DTOs\\DocumentDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\DocumentDto.cs",
+              "ToolTip": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\DTOs\\DocumentDto.cs",
+              "RelativeToolTip": "DTOs\\DocumentDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T03:47:46.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Documents.cs",
+              "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Models\\Documents.cs",
+              "RelativeDocumentMoniker": "Models\\Documents.cs",
+              "ToolTip": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Models\\Documents.cs",
+              "RelativeToolTip": "Models\\Documents.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T03:45:10.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T06:08:45.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MedicalRecordsController.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Controllers\\MedicalRecordsController.cs",
               "RelativeDocumentMoniker": "Controllers\\MedicalRecordsController.cs",
@@ -154,12 +252,11 @@
               "RelativeToolTip": "Controllers\\MedicalRecordsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-23T03:34:53.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-23T03:34:53.966Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "MedicalRecordService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\MedicalRecordService.cs",
               "RelativeDocumentMoniker": "Services\\MedicalRecordService.cs",
@@ -167,12 +264,11 @@
               "RelativeToolTip": "Services\\MedicalRecordService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-23T03:33:30.671Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-23T03:33:30.671Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "IMedicalRecordService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\Interfaces\\IMedicalRecordService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IMedicalRecordService.cs",
@@ -180,12 +276,11 @@
               "RelativeToolTip": "Services\\Interfaces\\IMedicalRecordService.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAUwAQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-23T03:32:56.613Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-23T03:32:56.613Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "MedicalRecordDto.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\DTOs\\MedicalRecordDto.cs",
               "RelativeDocumentMoniker": "DTOs\\MedicalRecordDto.cs",
@@ -193,38 +288,24 @@
               "RelativeToolTip": "DTOs\\MedicalRecordDto.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-23T03:31:07.645Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-23T03:31:07.645Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T06:08:45.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAUwHYAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAUwHYAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-22T07:35:46.646Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "MedicalRecords.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Models\\MedicalRecords.cs",
               "RelativeDocumentMoniker": "Models\\MedicalRecords.cs",
@@ -232,12 +313,11 @@
               "RelativeToolTip": "Models\\MedicalRecords.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-23T03:27:38.548Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-23T03:27:38.548Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "AppoitmentController.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Controllers\\AppoitmentController.cs",
               "RelativeDocumentMoniker": "Controllers\\AppoitmentController.cs",
@@ -249,7 +329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "AppoitmentService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\AppoitmentService.cs",
               "RelativeDocumentMoniker": "Services\\AppoitmentService.cs",
@@ -261,7 +341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "IAppoitmentService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\Interfaces\\IAppoitmentService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IAppoitmentService.cs",
@@ -273,7 +353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "AppointmentDto.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\DTOs\\AppointmentDto.cs",
               "RelativeDocumentMoniker": "DTOs\\AppointmentDto.cs",
@@ -285,7 +365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "Appointments.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Models\\Appointments.cs",
               "RelativeDocumentMoniker": "Models\\Appointments.cs",
@@ -297,7 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "Specialities.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Models\\Specialities.cs",
               "RelativeDocumentMoniker": "Models\\Specialities.cs",
@@ -309,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "SpecialityEnum.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Enums\\SpecialityEnum.cs",
               "RelativeDocumentMoniker": "Enums\\SpecialityEnum.cs",
@@ -321,7 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "SpecialityService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\SpecialityService.cs",
               "RelativeDocumentMoniker": "Services\\SpecialityService.cs",
@@ -333,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "SpecialitiesController.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Controllers\\SpecialitiesController.cs",
               "RelativeDocumentMoniker": "Controllers\\SpecialitiesController.cs",
@@ -345,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "Doctors.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Models\\Doctors.cs",
               "RelativeDocumentMoniker": "Models\\Doctors.cs",
@@ -357,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "ISpecialityService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\Interfaces\\ISpecialityService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\ISpecialityService.cs",
@@ -369,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 27,
               "Title": "InsuranceCompany.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Models\\InsuranceCompany.cs",
               "RelativeDocumentMoniker": "Models\\InsuranceCompany.cs",
@@ -381,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "InsuranceCompanyDto.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\DTOs\\InsuranceCompanyDto.cs",
               "RelativeDocumentMoniker": "DTOs\\InsuranceCompanyDto.cs",
@@ -393,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 22,
               "Title": "PatientService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\PatientService.cs",
               "RelativeDocumentMoniker": "Services\\PatientService.cs",
@@ -405,7 +485,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 24,
               "Title": "SpecialityDto.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\DTOs\\SpecialityDto.cs",
               "RelativeDocumentMoniker": "DTOs\\SpecialityDto.cs",
@@ -417,7 +497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "DoctorDto.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\DTOs\\DoctorDto.cs",
               "RelativeDocumentMoniker": "DTOs\\DoctorDto.cs",
@@ -429,7 +509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "InsuranceCompanyController.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Controllers\\InsuranceCompanyController.cs",
               "RelativeDocumentMoniker": "Controllers\\InsuranceCompanyController.cs",
@@ -441,7 +521,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "IInsuranceCompanyService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\Interfaces\\IInsuranceCompanyService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IInsuranceCompanyService.cs",
@@ -453,7 +533,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "IDoctorService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\Interfaces\\IDoctorService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IDoctorService.cs",
@@ -465,7 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "IPatientService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\Interfaces\\IPatientService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IPatientService.cs",
@@ -477,7 +557,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "DoctorService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\DoctorService.cs",
               "RelativeDocumentMoniker": "Services\\DoctorService.cs",
@@ -489,7 +569,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 32,
               "Title": "InsuranceCompanyService.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Services\\InsuranceCompanyService.cs",
               "RelativeDocumentMoniker": "Services\\InsuranceCompanyService.cs",
@@ -501,7 +581,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 34,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -513,7 +593,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 35,
               "Title": "PatientsController.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\Controllers\\PatientsController.cs",
               "RelativeDocumentMoniker": "Controllers\\PatientsController.cs",
@@ -525,7 +605,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "PatientDto.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\DTOs\\PatientDto.cs",
               "RelativeDocumentMoniker": "DTOs\\PatientDto.cs",
@@ -537,7 +617,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 37,
               "Title": "CreateDoctorDto.cs",
               "DocumentMoniker": "C:\\Users\\fyras\\OneDrive\\Desktop\\MedicalChatApp\\MedicalAppBackend\\MedicalAppBackend\\DTOs\\CreateDoctorDto.cs",
               "RelativeDocumentMoniker": "DTOs\\CreateDoctorDto.cs",

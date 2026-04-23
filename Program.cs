@@ -18,6 +18,7 @@ builder.Services.AddScoped<IInsuranceCompanyService, InsuranceCompanyService>();
 builder.Services.AddScoped<ISpecialityService, SpecialityService>();
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 builder.Services.AddScoped<IMedicalRecordService, MedicalRecordService>();
+builder.Services.AddScoped<IDocumentService, DocumentService>();
 var app = builder.Build();
 
 app.UseHttpsRedirection();
