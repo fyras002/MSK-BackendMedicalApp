@@ -117,6 +117,10 @@ namespace MedicalAppBackend.Data
                 .HasOne(a => a.Doctor)
                 .WithMany(d => d.Appointments)
                 .HasForeignKey(a => a.IdDoctor);
+            modelBuilder.Entity<Documents>()
+                .HasOne(d => d.MedicalRecord)
+                .WithMany(m => m.Documents)
+                .HasForeignKey(d => d.IdMedicalRecord);
 
         }
     }
