@@ -4,6 +4,7 @@ using MedicalAppBackend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalAppBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260426130145_AddConsultationRelationships")]
+    partial class AddConsultationRelationships
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -442,6 +445,9 @@ namespace MedicalAppBackend.Migrations
                     b.Property<string>("DocName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("DocumentIdDocument")
+                        .HasColumnType("int");
+
                     b.Property<int?>("IdDocument")
                         .HasColumnType("int");
 
@@ -450,7 +456,7 @@ namespace MedicalAppBackend.Migrations
 
                     b.HasKey("IdPerscription");
 
-                    b.HasIndex("IdDocument");
+                    b.HasIndex("DocumentIdDocument");
 
                     b.ToTable("Prescriptions");
                 });
@@ -654,7 +660,7 @@ namespace MedicalAppBackend.Migrations
                 {
                     b.HasOne("MedicalAppBackend.Models.Documents", "Document")
                         .WithMany()
-                        .HasForeignKey("IdDocument");
+                        .HasForeignKey("DocumentIdDocument");
 
                     b.Navigation("Document");
                 });

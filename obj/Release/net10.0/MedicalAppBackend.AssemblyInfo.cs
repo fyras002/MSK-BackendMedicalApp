@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedicalAppBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55c310837f7fb595f7f371508f1472ed9b4e350d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9115bee96111f43d14d8eaa902c4647794c0a575")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedicalAppBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedicalAppBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
