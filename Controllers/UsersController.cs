@@ -1,7 +1,6 @@
-﻿using MedicalAppBackend.Data;
-using MedicalAppBackend.Models;
+﻿using MedicalAppBackend.DTOs;
+using MedicalAppBackend.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace MedicalAppBackend.Controllers
 {
@@ -9,47 +8,49 @@ namespace MedicalAppBackend.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IUserService _userService;
 
-        public UsersController(AppDbContext context)
+        public UsersController(IUserService userService)
         {
-            _context = context;
+            _userService = userService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = await _context.Users.ToListAsync();
+            var users = await _userService.GetAllUsersAsync();
             return Ok(users);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-                return NotFound($"User with id {id} not found");
+            var user = await _userService.GetUserByIdAsync(id);
+            if (user == null) return NotFound();
             return Ok(user);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateUser(Users user)
+        public async Task<IActionResult> CreateUser(CreateUserDto dto)
         {
-            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
-            return Created($"/Users/{user.Id}", user);
+            var created = await _userService.CreateUserAsync(dto);
+            return CreatedAtAction(nameof(GetUserById), new { id = created.Id }, created);
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginUserDto dto)
+        {
+            var user = await _userService.LoginAsync(dto);
+            if (user == null) return Unauthorized(new { message = "Invalid credentials" });
+            return Ok(user);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-                return NotFound($"User with id {id} not found");
-
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-            return Ok($"User {id} deleted");
+            var deleted = await _userService.DeleteUserAsync(id);
+            if (!deleted) return NotFound();
+            return Ok(new { message = "User deleted" });
         }
     }
 }

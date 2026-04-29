@@ -4,6 +4,7 @@ using MedicalAppBackend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalAppBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260428092038_AddPasswordHashing")]
+    partial class AddPasswordHashing
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -594,8 +597,7 @@ namespace MedicalAppBackend.Migrations
 
                     b.HasOne("MedicalAppBackend.Models.MedicalRecords", "MedicalRecord")
                         .WithMany()
-                        .HasForeignKey("IdMedicalRecord")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("IdMedicalRecord");
 
                     b.HasOne("MedicalAppBackend.Models.Patients", "Patient")
                         .WithMany("Consultations")
@@ -637,7 +639,7 @@ namespace MedicalAppBackend.Migrations
                     b.HasOne("MedicalAppBackend.Models.Patients", "Patient")
                         .WithOne("MedicalRecord")
                         .HasForeignKey("MedicalAppBackend.Models.MedicalRecords", "IdPatient")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Patient");
                 });
@@ -655,8 +657,7 @@ namespace MedicalAppBackend.Migrations
                 {
                     b.HasOne("MedicalAppBackend.Models.Documents", "Document")
                         .WithMany()
-                        .HasForeignKey("IdDocument")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("IdDocument");
 
                     b.Navigation("Document");
                 });

@@ -91,7 +91,7 @@ namespace MedicalAppBackend.Data
                 .HasOne(m => m.Patient)
                 .WithOne(p => p.MedicalRecord)
                 .HasForeignKey<MedicalRecords>(m => m.IdPatient)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.SetNull);
             // Doctor -> User (One-to-One)
             modelBuilder.Entity<Doctors>()
                 .HasOne(d => d.User)
@@ -134,11 +134,15 @@ namespace MedicalAppBackend.Data
             modelBuilder.Entity<Consultations>()
                 .HasOne(c => c.MedicalRecord)
                 .WithMany()
-                .HasForeignKey(c => c.IdMedicalRecord);
+                .HasForeignKey(c => c.IdMedicalRecord)
+                .OnDelete(DeleteBehavior.SetNull);
+
             modelBuilder.Entity<Prescription>()
                 .HasOne(p => p.Document)
                 .WithMany()
-                .HasForeignKey(p => p.IdDocument);
+                .HasForeignKey(p => p.IdDocument)
+                .OnDelete(DeleteBehavior.Cascade);
+
 
         }
     }

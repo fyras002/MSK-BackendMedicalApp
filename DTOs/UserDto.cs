@@ -1,0 +1,30 @@
+﻿namespace MedicalAppBackend.DTOs
+{
+    public class UserDto
+    {
+        public int Id { get; set; }
+        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string? Firstname { get; set; }
+        public string? Lastname { get; set; }
+        public string? Photo { get; set; }
+        public int? Role { get; set; }
+        
+    }
+
+    public class CreateUserDto
+    {
+        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;  
+        public string? Firstname { get; set; }
+        public string? Lastname { get; set; }
+        public int? Role { get; set; }
+    }
+
+    public class LoginUserDto
+    {
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+}

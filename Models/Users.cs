@@ -1,14 +1,11 @@
-﻿namespace MedicalAppBackend.Models
+﻿public class Users
 {
-    public class Users
-    {
-        public int Id { get; set; }
-        public string Username { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
-        public string? Firstname { get; set; }
-        public string? Lastname { get; set; }
-        public string? Photo { get; set; }
-        public int? Role { get; set; }  
-    }
+    public int Id { get; set; }
+    public string Username { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string PasswordHash { get; set; } = string.Empty;  
+    public string? Firstname { get; set; }
+    public string? Lastname { get; set; }
+    public string? Photo { get; set; }
+    public int? Role { get; set; }
 }

@@ -153,5 +153,24 @@ namespace MedicalAppBackend.Services
         {
             return await _context.Doctors.AnyAsync(d => d.Id == id);
         }
+        public async Task<List<DoctorDto>> GetDoctorByUserIdAsync(int userId)
+        {
+            return await _context.Doctors
+                .Where(d => d.UserId == userId)
+                .Include(d => d.User)
+                .Include(d => d.Speciality)
+                .Select(d => new DoctorDto
+                {
+                    Id = d.Id,
+                    FullName = d.User != null ? $"{d.User.Firstname} {d.User.Lastname}" : "N/A",
+                    Email = d.User != null ? d.User.Email : null,
+                    SpecialityName = d.Speciality != null ? d.Speciality.SpecialityName.ToString() : null,
+                    LicenseNumber = d.LicenseNumber,
+                    Biography = d.Biography,
+                    YearsOfExperience = d.YearsOfExperience,
+                    IsAvailable = d.IsAvailable
+                })
+                .ToListAsync();
+        }
     }
 }

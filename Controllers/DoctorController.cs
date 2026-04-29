@@ -69,5 +69,11 @@ namespace MedicalAppBackend.Controllers
                 return NotFound(new { message = $"Doctor with id {id} not found" });
             return Ok(new { message = $"Doctor with id {id} was removed" });
         }
+        [HttpGet("user/{userId}")]
+        public async Task<IActionResult> GetDoctorByUserId(int userId)
+        {
+            var doctors = await _doctorService.GetDoctorByUserIdAsync(userId);
+            return Ok(doctors);
+        }
     }
 }

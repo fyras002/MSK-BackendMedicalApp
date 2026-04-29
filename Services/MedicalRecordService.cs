@@ -152,7 +152,23 @@ namespace MedicalAppBackend.Services
             if (medicalRecord == null)
                 return false;
 
-            _context.Documents.RemoveRange(medicalRecord.Documents);
+            // Delete related Consultations first
+            var consultations = await _context.Consultations
+                .Where(c => c.IdMedicalRecord == id)
+                .ToListAsync();
+
+            if (consultations.Any())
+            {
+                _context.Consultations.RemoveRange(consultations);
+            }
+
+            // Delete related Documents
+            if (medicalRecord.Documents.Any())
+            {
+                _context.Documents.RemoveRange(medicalRecord.Documents);
+            }
+
+            // Now delete the MedicalRecord
             _context.MedicalRecords.Remove(medicalRecord);
             await _context.SaveChangesAsync();
             return true;
