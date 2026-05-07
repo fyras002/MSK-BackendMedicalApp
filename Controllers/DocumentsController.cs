@@ -45,6 +45,42 @@ namespace MedicalAppBackend.Controllers
             return CreatedAtAction(nameof(GetDocumentById), new { id = created.IdDocument }, created);
         }
 
+        [HttpPost("upload")]
+        public async Task<IActionResult> UploadDocument(
+            IFormFile file,
+            [FromForm] string titleDocument,
+            [FromForm] string? descriptionDocument,
+            [FromForm] int? idMedicalRecord)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest(new { message = "No file uploaded" });
+
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+            if (!Directory.Exists(uploadsFolder))
+                Directory.CreateDirectory(uploadsFolder);
+
+            var safeFileName = file.FileName.Replace(" ", "-");
+            var uniqueFileName = Guid.NewGuid().ToString() + "_" + safeFileName;
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            var document = new CreateDocumentDto
+            {
+                TitleDocument = titleDocument,
+                DescriptionDocument = descriptionDocument,
+                AttachmentDocument = $"/uploads/{uniqueFileName}",
+                IdMedicalRecord = idMedicalRecord,
+                DateDocument = DateTime.UtcNow
+            };
+
+            var created = await _service.CreateDocumentAsync(document);
+            return CreatedAtAction(nameof(GetDocumentById), new { id = created.IdDocument }, created);
+        }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateDocument(int id, UpdateDocumentDto dto)
         {

@@ -12,5 +12,6 @@ namespace MedicalAppBackend.Services.Interfaces
         Task<AppointmentDto> CreateAppointmentAsync(CreateAppointmentDto dto);
         Task<bool> UpdateAppointmentAsync(int id, UpdateAppointmentDto dto);
         Task<bool> DeleteAppointmentAsync(int id);
+        Task<bool> UpdateAppointmentStatusAsync(int id, string status);
     }
 }

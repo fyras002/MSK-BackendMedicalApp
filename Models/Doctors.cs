@@ -13,6 +13,7 @@
         public string? Biography { get; set; }
         public int? YearsOfExperience { get; set; }
         public bool? IsAvailable { get; set; }
+        public string? PhotoUrl { get; set; }
 
         public List<Consultations> Consultations { get; set; } = new();
         public List<Appointments> Appointments { get; set; } = new();

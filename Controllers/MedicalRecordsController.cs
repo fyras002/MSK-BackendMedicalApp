@@ -71,5 +71,11 @@ namespace MedicalAppBackend.Controllers
                 return NotFound(new { message = $"Medical record with id {id} not found" });
             return Ok(new { message = $"Medical record {id} deleted successfully" });
         }
+        [HttpGet("doctor/{doctorId}")]
+        public async Task<IActionResult> GetMedicalRecordsByDoctor(int doctorId)
+        {
+            var records = await _service.GetMedicalRecordsByDoctorAsync(doctorId);
+            return Ok(records);
+        }
     }
 }

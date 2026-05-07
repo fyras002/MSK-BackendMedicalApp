@@ -69,11 +69,28 @@ namespace MedicalAppBackend.Controllers
                 return NotFound(new { message = $"Doctor with id {id} not found" });
             return Ok(new { message = $"Doctor with id {id} was removed" });
         }
+
         [HttpGet("user/{userId}")]
         public async Task<IActionResult> GetDoctorByUserId(int userId)
         {
             var doctors = await _doctorService.GetDoctorByUserIdAsync(userId);
             return Ok(doctors);
+        }
+
+        [HttpGet("{id}/patients")]
+        public async Task<IActionResult> GetDoctorPatients(int id)
+        {
+            var patients = await _doctorService.GetDoctorPatientsAsync(id);
+            return Ok(patients);
+        }
+
+        [HttpPost("{id}/upload-photo")]
+        public async Task<IActionResult> UploadPhoto(int id, IFormFile file)
+        {
+            var doctor = await _doctorService.UploadPhotoAsync(id, file);
+            if (doctor == null)
+                return NotFound(new { message = $"Doctor with id {id} not found" });
+            return Ok(doctor);
         }
     }
 }

@@ -10,5 +10,7 @@
         public string? Biography { get; set; }
         public int? YearsOfExperience { get; set; }
         public bool? IsAvailable { get; set; }
+        public int? UserId { get; set; }
+        public string? PhotoUrl { get; set; }
     }
 }

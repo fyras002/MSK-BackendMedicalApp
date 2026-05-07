@@ -41,7 +41,8 @@ namespace MedicalAppBackend.Services
                     DoctorFullName = a.Doctor != null && a.Doctor.User != null ? $"{a.Doctor.User.Firstname} {a.Doctor.User.Lastname}" : null,
                     DoctorSpeciality = a.Doctor != null && a.Doctor.Speciality != null ? a.Doctor.Speciality.SpecialityName.ToString() : null,
                     IdCompany = a.IdCompany,
-                    InsuranceCompanyName = a.InsuranceCompany != null ? a.InsuranceCompany.CompanyName : null
+                    InsuranceCompanyName = a.InsuranceCompany != null ? a.InsuranceCompany.CompanyName : null,
+                    Status = a.Status
                 })
                 .OrderByDescending(a => a.DateTimeAppointment)
                 .ToListAsync();
@@ -74,7 +75,8 @@ namespace MedicalAppBackend.Services
                     DoctorFullName = a.Doctor != null && a.Doctor.User != null ? $"{a.Doctor.User.Firstname} {a.Doctor.User.Lastname}" : null,
                     DoctorSpeciality = a.Doctor != null && a.Doctor.Speciality != null ? a.Doctor.Speciality.SpecialityName.ToString() : null,
                     IdCompany = a.IdCompany,
-                    InsuranceCompanyName = a.InsuranceCompany != null ? a.InsuranceCompany.CompanyName : null
+                    InsuranceCompanyName = a.InsuranceCompany != null ? a.InsuranceCompany.CompanyName : null,
+                    Status = a.Status
                 })
                 .FirstOrDefaultAsync();
         }
@@ -106,7 +108,8 @@ namespace MedicalAppBackend.Services
                     DoctorFullName = a.Doctor != null && a.Doctor.User != null ? $"{a.Doctor.User.Firstname} {a.Doctor.User.Lastname}" : null,
                     DoctorSpeciality = a.Doctor != null && a.Doctor.Speciality != null ? a.Doctor.Speciality.SpecialityName.ToString() : null,
                     IdCompany = a.IdCompany,
-                    InsuranceCompanyName = a.InsuranceCompany != null ? a.InsuranceCompany.CompanyName : null
+                    InsuranceCompanyName = a.InsuranceCompany != null ? a.InsuranceCompany.CompanyName : null,
+                    Status = a.Status
                 })
                 .OrderByDescending(a => a.DateTimeAppointment)
                 .ToListAsync();
@@ -139,7 +142,8 @@ namespace MedicalAppBackend.Services
                     DoctorFullName = a.Doctor != null && a.Doctor.User != null ? $"{a.Doctor.User.Firstname} {a.Doctor.User.Lastname}" : null,
                     DoctorSpeciality = a.Doctor != null && a.Doctor.Speciality != null ? a.Doctor.Speciality.SpecialityName.ToString() : null,
                     IdCompany = a.IdCompany,
-                    InsuranceCompanyName = a.InsuranceCompany != null ? a.InsuranceCompany.CompanyName : null
+                    InsuranceCompanyName = a.InsuranceCompany != null ? a.InsuranceCompany.CompanyName : null,
+                    Status = a.Status
                 })
                 .OrderByDescending(a => a.DateTimeAppointment)
                 .ToListAsync();
@@ -172,7 +176,8 @@ namespace MedicalAppBackend.Services
                     DoctorFullName = a.Doctor != null && a.Doctor.User != null ? $"{a.Doctor.User.Firstname} {a.Doctor.User.Lastname}" : null,
                     DoctorSpeciality = a.Doctor != null && a.Doctor.Speciality != null ? a.Doctor.Speciality.SpecialityName.ToString() : null,
                     IdCompany = a.IdCompany,
-                    InsuranceCompanyName = a.InsuranceCompany != null ? a.InsuranceCompany.CompanyName : null
+                    InsuranceCompanyName = a.InsuranceCompany != null ? a.InsuranceCompany.CompanyName : null,
+                    Status = a.Status
                 })
                 .OrderBy(a => a.DateTimeAppointment)
                 .ToListAsync();
@@ -204,31 +209,19 @@ namespace MedicalAppBackend.Services
         public async Task<bool> UpdateAppointmentAsync(int id, UpdateAppointmentDto dto)
         {
             var appointment = await _context.Appointments.FindAsync(id);
-            if (appointment == null)
-                return false;
+            if (appointment == null) return false;
 
-            if (dto.PatientName != null)
-                appointment.PatientName = dto.PatientName;
-            if (dto.PatientPhone != null)
-                appointment.PatientPhone = dto.PatientPhone;
-            if (dto.PatientEmail != null)
-                appointment.PatientEmail = dto.PatientEmail;
-            if (dto.PatientGender != null)
-                appointment.PatientGender = dto.PatientGender;
-            if (dto.Symptoms != null)
-                appointment.Symptoms = dto.Symptoms;
-            if (dto.Reason != null)
-                appointment.Reason = dto.Reason;
-            if (dto.DateTimeAppointment.HasValue)
-                appointment.DateTimeAppointment = dto.DateTimeAppointment;
-            if (dto.IsNewPatient.HasValue)
-                appointment.IsNewPatient = dto.IsNewPatient;
-            if (dto.IdPatient.HasValue)
-                appointment.IdPatient = dto.IdPatient;
-            if (dto.IdDoctor.HasValue)
-                appointment.IdDoctor = dto.IdDoctor;
-            if (dto.IdCompany.HasValue)
-                appointment.IdCompany = dto.IdCompany;
+            if (dto.PatientName != null) appointment.PatientName = dto.PatientName;
+            if (dto.PatientPhone != null) appointment.PatientPhone = dto.PatientPhone;
+            if (dto.PatientEmail != null) appointment.PatientEmail = dto.PatientEmail;
+            if (dto.PatientGender != null) appointment.PatientGender = dto.PatientGender;
+            if (dto.Symptoms != null) appointment.Symptoms = dto.Symptoms;
+            if (dto.Reason != null) appointment.Reason = dto.Reason;
+            if (dto.DateTimeAppointment.HasValue) appointment.DateTimeAppointment = dto.DateTimeAppointment;
+            if (dto.IsNewPatient.HasValue) appointment.IsNewPatient = dto.IsNewPatient;
+            if (dto.IdPatient.HasValue) appointment.IdPatient = dto.IdPatient;
+            if (dto.IdDoctor.HasValue) appointment.IdDoctor = dto.IdDoctor;
+            if (dto.IdCompany.HasValue) appointment.IdCompany = dto.IdCompany;
 
             await _context.SaveChangesAsync();
             return true;
@@ -237,10 +230,19 @@ namespace MedicalAppBackend.Services
         public async Task<bool> DeleteAppointmentAsync(int id)
         {
             var appointment = await _context.Appointments.FindAsync(id);
-            if (appointment == null)
-                return false;
+            if (appointment == null) return false;
 
             _context.Appointments.Remove(appointment);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> UpdateAppointmentStatusAsync(int id, string status)
+        {
+            var appointment = await _context.Appointments.FindAsync(id);
+            if (appointment == null) return false;
+
+            appointment.Status = status;
             await _context.SaveChangesAsync();
             return true;
         }

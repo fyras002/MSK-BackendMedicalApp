@@ -45,6 +45,15 @@ namespace MedicalAppBackend.Controllers
             return CreatedAtAction(nameof(GetPatientById), new { id = created.IdPatient }, created);
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePatient(int id, UpdatePatientDto dto)
+        {
+            var updated = await _patientService.UpdatePatientAsync(id, dto);
+            if (updated == null)
+                return NotFound(new { message = $"Patient with id {id} not found" });
+            return Ok(updated);
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePatient(int id)
         {

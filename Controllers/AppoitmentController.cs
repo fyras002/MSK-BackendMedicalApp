@@ -76,5 +76,12 @@ namespace MedicalAppBackend.Controllers
                 return NotFound(new { message = $"Appointment with id {id} not found" });
             return Ok(new { message = $"Appointment {id} deleted successfully" });
         }
+        [HttpPatch("{id}/status")]
+        public async Task<IActionResult> UpdateAppointmentStatus(int id, [FromBody] string status)
+        {
+            var updated = await _service.UpdateAppointmentStatusAsync(id, status);
+            if (!updated) return NotFound();
+            return Ok(new { message = $"Status updated to {status}" });
+        }
     }
 }

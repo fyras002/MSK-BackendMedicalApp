@@ -152,7 +152,6 @@ namespace MedicalAppBackend.Services
             if (medicalRecord == null)
                 return false;
 
-            // Delete related Consultations first
             var consultations = await _context.Consultations
                 .Where(c => c.IdMedicalRecord == id)
                 .ToListAsync();
@@ -162,13 +161,10 @@ namespace MedicalAppBackend.Services
                 _context.Consultations.RemoveRange(consultations);
             }
 
-            // Delete related Documents
             if (medicalRecord.Documents.Any())
             {
                 _context.Documents.RemoveRange(medicalRecord.Documents);
             }
-
-            // Now delete the MedicalRecord
             _context.MedicalRecords.Remove(medicalRecord);
             await _context.SaveChangesAsync();
             return true;
@@ -177,6 +173,39 @@ namespace MedicalAppBackend.Services
         public async Task<bool> PatientHasMedicalRecordAsync(int patientId)
         {
             return await _context.MedicalRecords.AnyAsync(m => m.IdPatient == patientId);
+        }
+        public async Task<List<MedicalRecordDto>> GetMedicalRecordsByDoctorAsync(int doctorId)
+        {
+            var patientIds = await _context.Appointments
+                .Where(a => a.IdDoctor == doctorId && a.IdPatient != null)
+                .Select(a => a.IdPatient!.Value)
+                .Distinct()
+                .ToListAsync();
+
+            return await _context.MedicalRecords
+                .Where(m => m.IdPatient != null && patientIds.Contains(m.IdPatient.Value))
+                .Include(m => m.Patient)
+                .Include(m => m.Documents)
+                .Select(m => new MedicalRecordDto
+                {
+                    IdMedicalRecord = m.IdMedicalRecord,
+                    IdPatient = m.IdPatient,
+                    PatientFullName = m.Patient != null ? $"{m.Patient.Firstname} {m.Patient.Lastname}" : null,
+                    BloodDraw = m.BloodDraw,
+                    Height = m.Height,
+                    Weight = m.Weight,
+                    MedicalCheckup = m.MedicalCheckup,
+                    HereditaryDiseases = m.HereditaryDiseases,
+                    ChronicDiseases = m.ChronicDiseases,
+                    Status = m.Status,
+                    Documents = m.Documents.Select(d => new DocumentSummaryDto
+                    {
+                        IdDocument = d.IdDocument,
+                        TitleDocument = d.TitleDocument,
+                        DateDocument = d.DateDocument
+                    }).ToList()
+                })
+                .ToListAsync();
         }
     }
 }

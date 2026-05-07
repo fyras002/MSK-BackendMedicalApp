@@ -60,6 +60,9 @@ namespace MedicalAppBackend.Migrations
                     b.Property<string>("Reason")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Symptoms")
                         .HasColumnType("nvarchar(max)");
 
@@ -225,6 +228,9 @@ namespace MedicalAppBackend.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("LicenseNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotoUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("SpecialityId")

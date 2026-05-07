@@ -19,5 +19,6 @@ namespace MedicalAppBackend.Models
         public Doctors? Doctor { get; set; }
         public int? IdCompany { get; set; }      //foreign key jey mel sharika mta3 linsurence
         public InsuranceCompany? InsuranceCompany { get; set; }
+        public string? Status { get; set; } = "Pending";
     }
 }

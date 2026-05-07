@@ -52,5 +52,22 @@ namespace MedicalAppBackend.Controllers
             if (!deleted) return NotFound();
             return Ok(new { message = "User deleted" });
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(int id, UpdateUserDto dto)
+        {
+            var updated = await _userService.UpdateUserAsync(id, dto);
+            if (updated == null)
+                return NotFound(new { message = $"User with id {id} not found" });
+            return Ok(updated);
+        }
+
+        [HttpPost("{id}/upload-photo")]
+        public async Task<IActionResult> UploadPhoto(int id, IFormFile file)
+        {
+            var updated = await _userService.UploadPhotoAsync(id, file);
+            if (updated == null)
+                return NotFound(new { message = $"User with id {id} not found" });
+            return Ok(updated);
+        }
     }
 }

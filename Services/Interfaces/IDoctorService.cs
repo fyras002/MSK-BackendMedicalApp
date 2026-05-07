@@ -13,5 +13,7 @@ namespace MedicalAppBackend.Services.Interfaces
         Task<bool> DeleteDoctorAsync(int id);
         Task<bool> DoctorExistsAsync(int id);
         Task<List<DoctorDto>> GetDoctorByUserIdAsync(int userId);
+        Task<List<PatientDto>> GetDoctorPatientsAsync(int doctorId);
+        Task<DoctorDto?> UploadPhotoAsync(int id, IFormFile file);
     }
 }

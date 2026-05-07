@@ -11,5 +11,6 @@ namespace MedicalAppBackend.Services.Interfaces
         Task<PatientDto> CreatePatientAsync(CreatePatientDto dto);
         Task<bool> DeletePatientAsync(int id);
         Task<bool> PatientExistsAsync(int id);
+        Task<PatientDto?> UpdatePatientAsync(int id, UpdatePatientDto dto);
     }
 }

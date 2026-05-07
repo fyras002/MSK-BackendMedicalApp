@@ -9,5 +9,7 @@ namespace MedicalAppBackend.Services.Interfaces
         Task<UserDto> CreateUserAsync(CreateUserDto dto);
         Task<UserDto?> LoginAsync(LoginUserDto dto);
         Task<bool> DeleteUserAsync(int id);
+        Task<UserDto?> UpdateUserAsync(int id, UpdateUserDto dto);
+        Task<UserDto?> UploadPhotoAsync(int id, IFormFile file);
     }
 }

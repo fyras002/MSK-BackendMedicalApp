@@ -18,6 +18,7 @@
         public string? DoctorSpeciality { get; set; }
         public int? IdCompany { get; set; }
         public string? InsuranceCompanyName { get; set; }
+        public string? Status { get; set; }
     }
 
     public class CreateAppointmentDto
@@ -33,6 +34,7 @@
         public int? IdPatient { get; set; }
         public int? IdDoctor { get; set; }
         public int? IdCompany { get; set; }
+        
     }
 
     public class UpdateAppointmentDto
